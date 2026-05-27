@@ -306,6 +306,8 @@ footer {
   animation: waBounce 1.8s ease infinite;
   /* Fix for mobile browsers — use dynamic viewport height */
   bottom: calc(28px + env(safe-area-inset-bottom));
+  right: auto;
+  left: 28px;
   will-change: transform;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -327,7 +329,8 @@ footer {
     padding: 14px;
     border-radius: 50%;
     bottom: 24px;
-    right: 20px;
+    left: 20px;
+    right: auto;
     width: 56px;
     height: 56px;
     justify-content: center;
