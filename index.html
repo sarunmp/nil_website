@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>BitWise — Freelance Web & App Development</title>
   <meta name="description" content="BitWise is a freelance development studio building fast, modern websites and apps for businesses and startups." />
   <link rel="stylesheet" href="style.css" />
@@ -270,6 +270,21 @@
   </a>
 
   <script>
+    // Fix WhatsApp button on mobile — locks position regardless of browser chrome
+    (function() {
+      function fixWaBtn() {
+        var btn = document.getElementById("whatsappBtn");
+        if (!btn) return;
+        btn.style.position = "fixed";
+        btn.style.bottom = "28px";
+        btn.style.right = "20px";
+      }
+      window.addEventListener("load", fixWaBtn);
+      window.addEventListener("scroll", fixWaBtn, { passive: true });
+      window.addEventListener("resize", fixWaBtn);
+      window.addEventListener("orientationchange", fixWaBtn);
+    })();
+
     function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
     function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
   </script>
