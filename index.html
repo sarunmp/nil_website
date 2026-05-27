@@ -39,7 +39,7 @@
   </div>
 
   <!-- ===== HERO ===== -->
-  <section style="background: linear-gradient(135deg, var(--navy) 0%, #1B3A8A 100%); padding: 110px 0 96px; overflow: hidden; position: relative;">
+  <section style="background: linear-gradient(135deg, var(--navy) 0%, #1B3A8A 100%); padding: 110px 0 96px; position: relative;">
     <!-- background grid pattern -->
     <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);background-size:32px 32px;pointer-events:none;"></div>
     <div class="container" style="position:relative;">
@@ -270,23 +270,7 @@
   </a>
 
   <script>
-    // Fix WhatsApp button on mobile — locks position regardless of browser chrome
-    (function() {
-      function fixWaBtn() {
-        var btn = document.getElementById("whatsappBtn");
-        if (!btn) return;
-        btn.style.position = "fixed";
-        btn.style.bottom = "28px";
-        btn.style.right = "auto";
-        btn.style.left = "20px";
-      }
-      window.addEventListener("load", fixWaBtn);
-      window.addEventListener("scroll", fixWaBtn, { passive: true });
-      window.addEventListener("resize", fixWaBtn);
-      window.addEventListener("orientationchange", fixWaBtn);
-    })();
-
-    function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+        function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
     function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
   </script>
 </body>
