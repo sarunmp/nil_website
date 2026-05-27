@@ -270,18 +270,123 @@ footer {
 .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
 .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
 
+/* mobile-stack — any 2-col inline grid that should collapse on phones */
+@media (max-width: 640px) {
+  .mobile-stack {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
   .grid-3 { grid-template-columns: repeat(2,1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
+
+/* ---- MOBILE (max 640px) — Full override ---- */
 @media (max-width: 640px) {
+
+  /* Base */
+  body { overflow-x: hidden; }
+  .container { padding: 0 18px; }
   .grid-3, .grid-2 { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .section { padding: 56px 0; }
+  .section-sm { padding: 40px 0; }
+  .section-title { font-size: 26px; }
+  .section-sub { font-size: 15px; }
+
+  /* Navbar */
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
+
+  /* Footer */
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  .section { padding: 64px 0; }
+
+  /* Hero section */
+  .hero-section { padding: 72px 0 60px !important; }
+
+  /* All inline 2-col grids collapse to 1 col */
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:1fr 1.2fr"],
+  [style*="grid-template-columns:1fr 1.5fr"],
+  [style*="grid-template-columns:1.5fr 1fr"],
+  [style*="grid-template-columns:1fr 2fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  /* Hide decorative side panels on mobile (pricing boxes etc) */
+  [style*="grid-template-columns:1fr 1fr"] > div:last-child:not(.card):not(.project-card),
+  [style*="grid-template-columns:1fr 1.2fr"] > div:first-child,
+  [style*="grid-template-columns:1.5fr 1fr"] > div:last-child { order: -1; }
+
+  /* Buttons */
+  .btn { font-size: 14px; padding: 11px 20px; }
+  .btn + .btn { margin-top: 10px; }
+
+  /* Cards */
+  .card { padding: 24px 20px; }
+
+  /* Process steps stat bar on homepage */
+  [style*="display:flex;gap:32px;margin-top:52px"] {
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Service pricing boxes — make them compact */
+  [style*="font-size:42px"] { font-size: 32px !important; }
+
+  /* Contact form 2-col name+email row → stack */
+  [style*="grid-template-columns:1fr 1fr;gap:16px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* About page skill bars section */
+  [style*="position:sticky"] { position: relative !important; top: auto !important; }
+
+  /* Fun facts grid on about page */
+  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+
+  /* Testimonial grid */
+  .grid-2 { grid-template-columns: 1fr !important; }
+
+  /* Hide decorative vertical dividers */
+  [style*="width:1px"] { display: none !important; }
+
+  /* Process card on homepage */
+  [style*="background:linear-gradient"][style*="border-radius:var(--radius-lg)"][style*="padding:48px"] {
+    padding: 24px !important;
+  }
+
+  /* Hero stat numbers */
+  [style*="font-size:30px"][style*="font-weight:800"] { font-size: 22px !important; }
+
+  /* CTA sections */
+  [style*="padding:80px 0"] { padding: 56px 0 !important; }
+
+  /* Page headers */
+  [style*="padding:64px 0 52px"] { padding: 44px 0 32px !important; }
+
+  /* Tech stack tags — wrap nicely */
+  [style*="display:flex;flex-wrap:wrap;gap:12px;justify-content:center"] {
+    gap: 8px !important;
+  }
+  [style*="padding:8px 18px"] { padding: 7px 12px !important; font-size: 13px !important; }
+}
+
+/* ---- Tablet (641–900px) ---- */
+@media (min-width: 641px) and (max-width: 900px) {
+  .container { padding: 0 28px; }
+  .section { padding: 72px 0; }
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns:1fr 1.2fr"],
+  [style*="grid-template-columns:1fr 1.5fr"] {
+    gap: 36px !important;
+  }
+  [style*="font-size:42px"] { font-size: 34px !important; }
 }
 
 /* ---- WhatsApp Floating Button ---- */
